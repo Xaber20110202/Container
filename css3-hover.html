@@ -1,0 +1,78 @@
+<!-- thanks to http://www.75team.com/archives/807 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3 - hover - demo</title>
+    <style>
+        .demo,
+        .img,
+        .mask,
+        .border {
+            width:300px;
+            height: 300px;
+            border-radius: 50%;
+        }
+        .demo {
+            display: block;
+            margin: 50px auto;
+            position: relative;
+        }
+        .img {
+            background-image:url(http://ww3.sinaimg.cn/mw690/9c7cd2cdjw1e60hntjcq2j211y0lcq5e.jpg);
+            background-position: center center;
+            background-size: cover; /* 铺满 类似 100% 100% */
+        }
+        .mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: rgba(255,255,255,0);
+            transition:all .5s ease-in;
+        }
+        .info {
+            text-align: center;
+            width:100%;
+
+            margin-top: 50%;
+
+            /* the same */
+            /*position: absolute;*/
+            /*top: 50%;    top 50%是针对外部容器元素的  */
+
+            -webkit-transform:translateY(-50%); /* 针对当前元素 */
+        }
+        .border {
+            position: absolute;
+            border: 10px solid #072256;
+            border-left-color:#E07514;
+            border-top-color:#E07514;
+            box-sizing:border-box;
+            top: 0;
+            left: 0;
+            transition:all .5s ease-in;
+        }
+        .demo:hover .border {
+            -webkit-transform:rotate(180deg); /* prefix 还是蛮重要的 */
+            transform:rotate(180deg);
+        }
+        .demo:hover .mask {
+            color: rgba(255,41,166,.8);
+            background:rgba(0,0,0,.5);
+        }
+
+    </style>
+</head>
+<body>
+    <a href="#" class="demo">
+        <div class="img"></div>
+        <div class="mask">
+            <div class="info">
+                <h3>Beautiful Life</h3>
+                <p>It's very good.</p>
+            </div>
+        </div>
+        <div class="border"></div>
+    </a>
+</body>
+</html>
