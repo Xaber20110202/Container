@@ -1,4 +1,5 @@
-
+// @todo 更全面的封装实现
+//       更好的函数命名
 ! function (X) {
 
     /*
@@ -6,14 +7,16 @@
      * @rely    jQuery
      * @param   selector jQuery 选择器 或者任意经jQuery可以转成jQuery dom对象的元素
      *          time 定时滚动的时间
+     *          direction 方向 'top' 'bottom' 'left' 'right' 分别是向上 向下 向左 向右滚动
      * @author  Xaber
      */
-    var setScrollList = function (selecter, time) {
+    var setScrollList = function (selecter, time, direction) {
         var $lis = null,
             $obj = $(selecter),
             count = 0,
             i = 0,
-            liHeight,
+            sizeType = (direction === 'top' || direction === 'bottom') ? 'height' : 'width',
+            liSize,
             timerFunc;
 
         if (!$obj || !$obj.length || !( count = ( $lis = $obj.find('li') ).length ) ) {
@@ -21,21 +24,22 @@
         }
 
         time = time || 2000;
-        liHeight = $lis.eq(0).height();
+        liSize = $lis.eq(0)[sizeType]();
 
         timerFunc = function() {
+            var option = {};
 
             if (i === count) {
-                $awardList.css('top', 0);
+                $awardList.css(direction, 0);
                 i = 1;
 
             } else {
                 i += 1;
             }
 
-            $awardList.animate({
-                top: i * -liHeight
-            });
+            option[direction] = i * -liSize;
+
+            $awardList.animate(option);
 
             setTimeout(timerFunc, time);
 
