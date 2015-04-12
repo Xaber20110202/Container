@@ -2,6 +2,8 @@
 
     /*
      * @note    CSS3 特性检测
+     * @rely    jQuery underscore
+     * @param   选择要检测的CSS 3特性名称
      * @author  Xaber
      */
     var isSupportCss3 = function (name) {

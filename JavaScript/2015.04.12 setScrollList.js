@@ -3,10 +3,14 @@
 
     /*
      * @note    列表向上滚动的小函数
+     * @rely    jQuery
+     * @param   selector jQuery 选择器 或者任意经jQuery可以转成jQuery dom对象的元素
+     *          time 定时滚动的时间
      * @author  Xaber
      */
-    var setScrollList = function ($obj, time) {
+    var setScrollList = function (selecter, time) {
         var $lis = null,
+            $obj = $(selecter),
             count = 0,
             i = 0,
             liHeight,
