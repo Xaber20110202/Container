@@ -1,3 +1,4 @@
+// 放在你 github 首页的控制台里按下回车试试
 var randomFunc = function (min, max) {
 	if (max == null) {
       max = min;
