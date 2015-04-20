@@ -15,13 +15,7 @@
         });
     };
 
-    if (X.help) {
-        X.help.isSupportCss3 = isSupportCss3;
-
-    } else {
-        X.help = {
-            isSupportCss3 : isSupportCss3
-        };
-    }
+    X.help = X.help || {};
+    X.help.isSupportCss3 = isSupportCss3;
 
 }( window.X ? window.X : (window.X = {}) );

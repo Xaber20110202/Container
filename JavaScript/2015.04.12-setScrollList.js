@@ -49,13 +49,7 @@
         timerFunc();
     };
 
-    if (X.help) {
-        X.help.setScrollList = setScrollList;
-    
-    } else {
-        X.help = {
-            setScrollList : setScrollList
-        };
-    }
+    X.help = X.help || {};
+    X.help.setScrollList = setScrollList;
 
 }( window.X ? window.X : (window.X = {}) );
