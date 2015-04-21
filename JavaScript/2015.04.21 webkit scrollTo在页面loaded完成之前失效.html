@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test for chrome back to prev position</title>
+</head>
+<body>
+    <div style="height:5000px;background:#39CCCC;">
+        <div style="height:2000px;background:#B10DC9;"></div>
+    </div>
+    
+    <script>
+
+    var log = function () {
+        console.log.apply(console, arguments);
+    };
+
+    // test on 
+    // chrome 版本 41.0.2272.104 (64-bit)
+    // ff 37.0.1
+
+    // ——————————————————————————————————————————————
+    // log('test 1 for window.scrollTo');
+    // window.scrollTo(0, 2000);
+    // log('now document.body.scrollTop is : ' + document.body.scrollTop); // chrome: 2000       FF: 0
+    // log('now document.documentElement.scrollTop is : ' + document.documentElement.scrollTop); // chrome: 0   ff: 2000
+
+
+    // ——————————————————————————————————————————————
+    // window.onload = function () {
+    //     log('test 2 for window.onload scrollTo');
+    //     window.scrollTo(0, 2000);
+    //     log('now document.body.scrollTop is : ' + document.body.scrollTop); // chrome: 2000       FF: 0
+    //     log('now document.documentElement.scrollTop is : ' + document.documentElement.scrollTop); // chrome: 0   ff: 2000
+    // };
+    
+
+    // ——————————————————————————————————————————————
+    // log('test 3 for window.scroll');
+    // window.scroll(0, 2000);
+    // log('now document.body.scrollTop is : ' + document.body.scrollTop); // chrome: 2000       FF: 0
+    // log('now document.documentElement.scrollTop is : ' + document.documentElement.scrollTop); // chrome: 0   ff: 2000 
+
+
+    // ——————————————————————————————————————————————
+    // log('test 4 for window.scrollBy');
+    // window.scrollBy(0, 2000);
+    // log('now document.body.scrollTop is : ' + document.body.scrollTop); // chrome: 2000       FF: 0
+    // log('now document.documentElement.scrollTop is : ' + document.documentElement.scrollTop); // chrome: 0   ff: 2000
+
+
+    // ——————————————————————————————————————————————
+    // setTimeout(function () {
+    //     log('test 5 for setTimeout scrollTo');
+    //     window.scrollTo(0, 2000);
+    //     log('now document.body.scrollTop is : ' + document.body.scrollTop); // chrome: 2000       FF: 0
+    //     log('now document.documentElement.scrollTop is : ' + document.documentElement.scrollTop); // chrome: 0   ff: 2000
+    // }, 1000);
+
+
+    // ——————————————————————————————————————————————
+    // and now Chrome works
+    // log('test 6 for onload && setTimeout window.scrollTo');
+    // window.onload = function () {
+    //     setTimeout(function () {
+    //         window.scrollTo(0, 2000);
+    //         log('now document.body.scrollTop is : ' + document.body.scrollTop); // chrome: 2000       FF: 0
+    //         log('now document.documentElement.scrollTop is : ' + document.documentElement.scrollTop); // chrome: 0   ff: 2000
+    //     }, 0);
+    // };
+
+    var next = function () {
+        log('test 1 for window.scrollTo');
+        window.scrollTo(0, 2000);
+        log('now document.body.scrollTop is : ' + document.body.scrollTop); // chrome: 2000       FF: 0
+        log('now document.documentElement.scrollTop is : ' + document.documentElement.scrollTop); // chrome: 0   ff: 2000
+        };
+
+    if (window.navigator.userAgent.search(/AppleWebKit\/(\d+\.)+(\d+)? \(KHTML\, like Gecko\)/) !== -1) {
+        if (window.name) { // 默认如果被设置过 就采用延时
+            window.onload = function () {
+                setTimeout(next, 200);
+            };
+        } else {
+            window.name = 'refresh_frag';
+            next();
+        }
+    } else {
+        next();
+    }
+
+    </script>
+</body>
+</html>
