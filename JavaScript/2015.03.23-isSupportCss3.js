@@ -3,16 +3,21 @@
     /*
      * @note    CSS3 特性检测
      * @rely    jQuery underscore
-     * @param   选择要检测的CSS 3特性名称
+     * @param   选择要检测的CSS 3特性名称们
      * @author  Xaber
      */
-    var isSupportCss3 = function (name) {
-        var reg = new RegExp(name, 'ig'),
-            getComputedStyle = window.getComputedStyle;
+    var isSupportCss3 = function () {
+        var getComputedStyle = window.getComputedStyle,
+            computedStlye = null;
 
-        return !!getComputedStyle && _.some( getComputedStyle( document.body, null ), function (v) {
-            return reg.test(v);
-        });
+        return !!getComputedStyle && 
+            (computedStlye = getComputedStyle(document.body, null)) && 
+            _.every(Array.prototype.slice.call(arguments), function (name) {
+                var reg = new RegExp(name, 'ig');
+                return _.some(computedStlye, function (v) {
+                    return reg.test(v);
+                });
+            });
     };
 
     X.help = X.help || {};
