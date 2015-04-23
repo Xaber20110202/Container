@@ -10,7 +10,7 @@
      */
     var centerHelper = function (contaner, dom, width, height) {
         var $contaner = null,
-            $contaner = null,
+            $dom = null,
             contanerH = 0,
             contanerW = 0;
 
@@ -36,7 +36,7 @@
 
     X.help = X.help || {};
     X.help.align = X.help.align || {};
-    
+
     X.help.align.getTarget = getTarget;
     X.help.align.centerHelper = centerHelper;
 
