@@ -14,14 +14,14 @@
             contanerH = 0,
             contanerW = 0;
 
+        if(!dom || !contaner) {
+            return;
+        }
+
+        $dom = $(dom);
+        $contaner = $(contaner);
+        
         return function (event) {
-
-            if(!dom || !contaner) {
-                return;
-            }
-
-            $dom = $(dom);
-            $contaner = $(contaner);
 
             width = width || $dom.width();
             height = height || $dom.height();
