@@ -1,0 +1,27 @@
+/* mask cp from miniDialog mask */
+/* some bug fixed by Xaber */
+.m-mask {
+    position: fixed;
+    _position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2399;
+    background: -moz-radial-gradient(center,ellipse cover,rgba(0,0,0,.35) 0,rgba(0,0,0,.35) 15%,rgba(0,0,0,.47) 38%,rgba(0,0,0,.8) 100%);
+    background: -webkit-gradient(radial,center center,0,center center,100%,color-stop(0%,rgba(0,0,0,.35)),color-stop(15%,rgba(0,0,0,.35)),color-stop(38%,rgba(0,0,0,.47)),color-stop(100%,rgba(0,0,0,.8)));
+    background: -webkit-radial-gradient(center,ellipse cover,rgba(0,0,0,.35) 0,rgba(0,0,0,.35) 15%,rgba(0,0,0,.47) 38%,rgba(0,0,0,.8) 100%);
+    background: -o-radial-gradient(center,ellipse cover,rgba(0,0,0,.35) 0,rgba(0,0,0,.35) 15%,rgba(0,0,0,.47) 38%,rgba(0,0,0,.8) 100%);
+    background: -ms-radial-gradient(center,ellipse cover,rgba(0,0,0,.35) 0,rgba(0,0,0,.35) 15%,rgba(0,0,0,.47) 38%,rgba(0,0,0,.8) 100%);
+    background: radial-gradient(ellipse at center,rgba(0,0,0,.35) 0,rgba(0,0,0,.35) 15%,rgba(0,0,0,.47) 38%,rgba(0,0,0,.8) 100%);
+    background: #000\9;
+    opacity: 0.4\9;
+    *background: #000;
+    *filter:alpha(opacity=40);
+}
+@media \0screen {
+    .m-mask {
+        background: #000;
+        filter:alpha(opacity=40);
+    }
+}
