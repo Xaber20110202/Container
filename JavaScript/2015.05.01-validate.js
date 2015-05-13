@@ -38,8 +38,16 @@
         return isString(str) && str.length < length;
     };
 
+    validate.lteLength = function (str, length) {
+        return isString(str) && str.length <= length;
+    };
+
     validate.gtLength = function (str, length) {
         return isString(str) && str.length > length;
+    };
+
+    validate.gteLength = function (str, length) {
+        return isString(str) && str.length >= length;
     };
 
     validate.eqLength = function (str, length) {
