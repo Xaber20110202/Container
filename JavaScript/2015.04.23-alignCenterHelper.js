@@ -1,36 +1,36 @@
 (function (win, X) {
 
-    var getTarget = function (contanersize, domsize) {
-        var target = Math.round((contanersize - domsize) / 2);
+    var getTarget = function (containersize, domsize) {
+        var target = Math.round((containersize - domsize) / 2);
         return target < 0 ? -target : target;
     };
 
     /* @note    用于绝对／固定定位的元素水品垂直居中 主要用于弹窗居中的场景
      * @author  Xaber
      */
-    var centerHelper = function (contaner, dom, width, height) {
-        var $contaner = null,
+    var centerHelper = function (container, dom, width, height) {
+        var $container = null,
             $dom = null,
-            contanerH = 0,
-            contanerW = 0;
+            containerH = 0,
+            containerW = 0;
 
-        if(!dom || !contaner) {
+        if(!dom || !container) {
             return;
         }
 
         $dom = $(dom);
-        $contaner = $(contaner);
+        $container = $(container);
         
         return function (event) {
 
             width = width || $dom.width();
             height = height || $dom.height();
 
-            contanerH = $contaner.height();
-            contanerW = $contaner.width();
+            containerH = $container.height();
+            containerW = $container.width();
 
-            $dom.css('left', getTarget(contanerW, width));
-            $dom.css('top', getTarget(contanerH, height));
+            $dom.css('left', getTarget(containerW, width));
+            $dom.css('top', getTarget(containerH, height));
         };
     };
 
