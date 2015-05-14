@@ -20,10 +20,10 @@
         $container = $(container);
         
         return function (event) {
+            reserveW = reserveW || 0;
+            fixbarW = fixbarW || $fixbar.width();
 
-            var fixbarW = fixbarW || $fixbar.width(),
-                containerW = $container.width(),
-                reserveW = reserveW || 0;
+            var containerW = $container.width();
 
             // 最外层宽度 - 中间区域宽度 / 2 --> 两侧单边剩余宽度
             // 单边剩余宽度 - fixbarW - reserveW --> 如果有剩余 就是可以设置的left/right
@@ -32,7 +32,7 @@
             $fixbar.css(locate, dValue > 0 ? dValue : 0);
         };
     };
-
+    
     X.help = X.help || {};
     X.help.align = X.help.align || {};
     X.help.align.lrHelper = lrHelper;
