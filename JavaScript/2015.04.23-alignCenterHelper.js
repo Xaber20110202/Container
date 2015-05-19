@@ -2,7 +2,7 @@
 
     var getTarget = function (containersize, domsize) {
         var target = Math.round((containersize - domsize) / 2);
-        return target < 0 ? -target : target;
+        return target < 0 ? 0 : target;
     };
 
     /* @note    用于绝对／固定定位的元素水品垂直居中 主要用于弹窗居中的场景
