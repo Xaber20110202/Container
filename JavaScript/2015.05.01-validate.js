@@ -1,6 +1,6 @@
 (function (win, X) {
 
-    var toString = String.prototype.toString;
+    var toString = Object.prototype.toString;
     var isString = function (obj) {
         return toString.call(obj) === '[object String]';
     };
