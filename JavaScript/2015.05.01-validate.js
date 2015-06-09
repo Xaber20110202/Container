@@ -18,18 +18,19 @@
      * @author  Xaber
      * @rely    nothing
      */
-    var validate = {
+    var validateConfig = {
         rEmail : /^(?:[a-z\d]+[_\-\+\.]?)*[a-z\d]+@(?:([a-z\d]+\-?)*[a-z\d]+\.)+([a-z]{2,})+$/i,
         rPassword : /^[a-zA-Z0-9`~@!#$%^&*()-=_+]{6,16}$/,
         rPhone : /^1[3-578]\d{9}$/,
         rCharacter : /^[a-zA-Z\d]+$/,
         rNumber : /^\d+$/
-    };
+    },
+        validate = {};
 
-    forEach(validate, function (reg, key) {
+    forEach(validateConfig, function (reg, key) {
         var name = 'check' + key.slice(1);
-
-        this[name] = function (str) {
+        validate[key] = reg;
+        validate[name] = function (str) {
             return !!str && this[key].test(str);
         };
     });
