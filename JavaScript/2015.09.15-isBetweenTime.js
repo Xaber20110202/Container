@@ -1,4 +1,4 @@
-// 定时展示功能
+// 时间判断函数
 (function () {
     var __now = Date.now(),
         pattern = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/,

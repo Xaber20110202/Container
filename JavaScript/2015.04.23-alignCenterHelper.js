@@ -5,7 +5,7 @@
         return target < 0 ? 0 : target;
     };
 
-    /* @note    用于绝对／固定定位的元素水品垂直居中 主要用于弹窗居中的场景
+    /* @note    用于绝对／固定定位的元素水平垂直居中 主要用于弹窗居中的场景
      * @author  Xaber
      */
     var centerHelper = function (container, dom, width, height) {
