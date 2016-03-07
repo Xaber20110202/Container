@@ -21,6 +21,7 @@
 * 2015.06.09-placeholder.js —— placeholder 的IE 6 7 8以及 `type password` 的兼容处理
 * 2015.06.24-checkAllHelper.js —— 全选反选辅助函数
 * 2015.09.15-isBetweenTime.js  —— 是否在时间（格式）间隔内的通用判断
+* 2016.03.02-letvVideoUpload.js —— 乐视云视频上传控件
 
 ### CSS 目录
 
