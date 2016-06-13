@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+</head>
+<body>
+
+    <select name="bank" class="ui-select J_bank">
+        <option value="渤海银行">渤海银行</option>
+        <option value="城市商业银行">城市商业银行</option>
+        <option value="城市信用社">城市信用社</option>
+        <option value="重庆三峡银行">重庆三峡银行</option>
+        <option value="村镇银行">村镇银行</option>
+        <option value="东亚银行">东亚银行</option>
+        <option value="广东发展银行">广东发展银行</option>
+        <option value="恒丰银行">恒丰银行</option>
+        <option value="恒生银行">恒生银行</option>
+        <option value="花旗银行">花旗银行</option>
+        <option value="华夏银行">华夏银行</option>
+        <option value="徽商银行">徽商银行</option>
+        <option value="交通银行">交通银行</option>
+        <option value="南洋商业银行">南洋商业银行</option>
+        <option value="农村合作银行">农村合作银行</option>
+        <option value="农村商业银行">农村商业银行</option>
+        <option value="农村信用合作社">农村信用合作社</option>
+        <option value="平安银行">平安银行</option>
+        <option value="厦门国际银行">厦门国际银行</option>
+        <option value="上海农村商业银行">上海农村商业银行</option>
+        <option value="上海浦东发展银行">上海浦东发展银行</option>
+        <option value="上海银行">上海银行</option>
+        <option value="兴业银行">兴业银行</option>
+        <option value="渣打银行">渣打银行</option>
+        <option value="招商银行">招商银行</option>
+        <option value="浙商银行">浙商银行</option>
+        <option value="中国工商银行">中国工商银行</option>
+        <option value="中国光大银行">中国光大银行</option>
+        <option value="中国建设银行">中国建设银行</option>
+        <option value="中国民生银行">中国民生银行</option>
+        <option value="中国农业银行">中国农业银行</option>
+        <option value="中国银行">中国银行</option>
+        <option value="中国邮政储蓄银行">中国邮政储蓄银行</option>
+        <option value="中信银行">中信银行</option>
+    </select>
+
+    <select name="" id="" class="J_province" style="display: none;"></select>
+
+    <select name="" id="" class="J_city"  style="display: none;"></select>
+
+    <select name="" id="" class="J_bankDetail"  style="display: none;"></select>
+
+    
+    <script>
+        $(function () {
+            var $bank = $('.J_bank'),
+                $province = $('.J_province'),
+                $city = $('.J_city'),
+                $bankDetail = $('.J_bankDetail');
+
+            var Status = {
+                bank: '',
+                province: '',
+                city: '',
+                bankDetail: ''
+            };
+
+            var getOptions = function (arr) {
+                var str = '';
+
+                if (arr && arr.length) {
+                    arr.forEach(function (val) {
+                        str += '<option val="' + val + '">' + val + '</option>';
+                    });
+                }
+
+                return str;
+            };
+
+            // 银行
+            $bank.on('change', function () {
+                var name = $(this).val();
+                var callback = function () {
+                    Status.bank = name;
+                    $province.html(getOptions(_.keys(window.chinaBank[name]))).show();
+                };
+
+                $city.hide();
+                $bankDetail.hide();
+
+                if (window.chinaBank && window.chinaBank[name]) {
+                    callback();
+                } else {
+                    $.getScript('http://b0.hucdn.com/assets/pc/bank/' + name + '.min.js', callback);
+                }
+            });
+
+            // 省份
+            $province.on('change', function () {
+                var name = $(this).val();
+
+                $bankDetail.hide();
+
+                if (window.chinaBank && 
+                    window.chinaBank[Status.bank] && 
+                    window.chinaBank[Status.bank][name]) {
+                    Status.province = name;
+                    $city.html(getOptions(_.keys(window.chinaBank[Status.bank][name]))).show();
+                }
+            });
+
+            // 市
+            $city.on('change', function () {
+                var name = $(this).val();
+
+                if (window.chinaBank && 
+                    window.chinaBank[Status.bank] && 
+                    window.chinaBank[Status.bank][Status.province] &&
+                    window.chinaBank[Status.bank][Status.province][name]) {
+                    $bankDetail.html(getOptions(window.chinaBank[Status.bank][Status.province][name])).show();
+                }
+            });
+        });
+    </script>    
+</body>
+</html>
