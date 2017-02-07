@@ -1,5 +1,5 @@
 // 一个简陋的倒计时辅助函数 
-// 原型来源 @zonghuan.chen@husor.com.cn
+// 原型来源 @zonghuan.chen@rosuh.com.cn
 // modified Xaber
 (function(win, X) {
     X.lightTimer = ({

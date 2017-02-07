@@ -17,7 +17,7 @@
         // isp_ad.js come from by zilong.feng for h5
         // modifed by Xaber for PC
         var srcFilterTags = $.isArray(option.srcFilterTags) ? option.srcFilterTags : ['iframe'],
-            domainWhiteList = $.isArray(option.domainWhiteList) ? option.domainWhiteList : ['beibei.com', 'live800.com', 'kuaidi100.com', 'open.qzone.qq.com'],
+            domainWhiteList = $.isArray(option.domainWhiteList) ? option.domainWhiteList : ['bbeeii.com', 'live800.com', 'kuaidi100.com', 'open.qzone.qq.com'],
             domainWhiteListReg = null,
             whitelistReg = null,
             searchTimes = option.searchTimes || 30, // 执行30次
@@ -25,7 +25,7 @@
             protocals = $.isArray(option.protocals) ? option.protocals : ['http'];
 
         // 白名单列表
-        // /^(http):\/\/[\w-\.]*?(beibei.com|live800.com|kuaidi100.com|open.qzone.qq.com)/
+        // /^(http):\/\/[\w-\.]*?(bbeeii.com|live800.com|kuaidi100.com|open.qzone.qq.com)/
         domainWhiteListReg = new RegExp('^(' + protocals.join('|') + ')://[\\w-\\.]*?' + '(' + domainWhiteList.join('|') + ')');
         whitelistReg = domainWhiteListReg;
 
@@ -63,7 +63,7 @@
 
         var sendLog = function(src, referer){
             $.ajax({
-                url: 'http://b.husor.cn/click.html?log=framekiller&src=' + encodeURIComponent(src) + '|pc|' + encodeURIComponent(referer),
+                url: 'http://b.rosuh.cn/click.html?log=framekiller&src=' + encodeURIComponent(src) + '|pc|' + encodeURIComponent(referer),
                 dataType: 'jsonp'
             });
         };
