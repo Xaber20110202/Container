@@ -46,7 +46,7 @@ ds();*/
 (function () {
     var fuck61160200156 = function () {
         var db = document.body,
-            whiteList = ['mizhe.com', 'bbeeii.com'], // 自己网站的脚本服务器列表
+            whiteList = ['ehtim.com', 'bbeeii.com'], // 自己网站的脚本服务器列表
             reg = new RegExp(whiteList.join('|'), 'gi'); // 其实也只是匹配src 所以只需要符合这里的正则就好了
 
         if (db && db.appendChild) {
