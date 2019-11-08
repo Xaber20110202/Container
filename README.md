@@ -25,6 +25,7 @@
 * 2015.09.15-isBetweenTime.js  —— 是否在时间（格式）间隔内的通用判断
 * 2016.03.02-letvVideoUpload.js —— 乐视云视频上传控件
 * 2016.03.24-chinaBank —— 银行根据省份地区选取分行
+* 2019.11.08-parentsHasClass.ts —— 检测父辈祖祖辈辈节点是否包含某个类名
 
 ### CSS 目录
 
