@@ -26,6 +26,7 @@
 * 2016.03.02-letvVideoUpload.js —— 乐视云视频上传控件
 * 2016.03.24-chinaBank —— 银行根据省份地区选取分行
 * 2019.11.08-parentsHasClass.ts —— 检测父辈祖祖辈辈节点是否包含某个类名
+* 2019.11.20 react-fix-footer.tsx —— react 组件固定页面底部（如果有需要的话）
 
 ### CSS 目录
 
